@@ -15,15 +15,17 @@ class Checkout
     @items << item
   end
 
-  def total_items
-    @items.map(&:price).reduce(0, :+)
-  end
-
   def total
     total_discount = 0
     promotional_rules.each do |rule|
       rule.calculate_discount(@items)
     end
     total_items.round(2)
+  end
+
+  private
+
+  def total_items
+    @items.map(&:price).reduce(0, :+)
   end
 end
