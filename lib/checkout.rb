@@ -3,9 +3,6 @@ require_relative 'bulk_rule'
 require_relative 'item'
 
 class Checkout
-
-  attr_reader :promotional_rules
-
   def initialize(promotional_rules)
     @promotional_rules = promotional_rules
     @items = []
@@ -24,6 +21,8 @@ class Checkout
   end
 
   private
+
+  attr_reader :promotional_rules
 
   def total_items
     @items.map(&:price).reduce(0, :+)
