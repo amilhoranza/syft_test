@@ -8,7 +8,7 @@ describe 'Checkout' do
     co = Checkout.new(
       [
         BulkRule.new(
-          product_code: '001', quantity_eligible: 2, discounted_price: 8.50
+          product_code: '001', quantity_eligible: 2, amount_discounted: 0.75
         ),
         PercentageRule.new(percentage_discount: 10, eligible_amount: 60)
       ]
@@ -26,7 +26,7 @@ describe 'Checkout' do
     co = Checkout.new(
       [
         BulkRule.new(
-          product_code: '001', quantity_eligible: 2, discounted_price: 8.50
+          product_code: '001', quantity_eligible: 2, amount_discounted: 0.75
         ),
         PercentageRule.new(percentage_discount: 10, eligible_amount: 60)
       ]

@@ -1,14 +1,15 @@
 require_relative 'checkout'
 
 rules = []
+bulk_rule = BulkRule.new(
+  product_code: '001', quantity_eligible: 2, amount_discounted: 0.75
+)
+rules << bulk_rule
+
 percentage_rule = PercentageRule.new(
   percentage_discount: 10, eligible_amount: 60
 )
 rules << percentage_rule
-bulk_rule = BulkRule.new(
-  product_code: '001', quantity_eligible: 2, discounted_price: 8.50
-)
-rules << bulk_rule
 
 co = Checkout.new(rules)
 co.scan(Item.new('001', 'Lavender heart', 9.25))

@@ -4,7 +4,7 @@ require 'item'
 describe 'BulkRule' do
   let(:rule) do
     BulkRule.new(
-      product_code: '001', quantity_eligible: 2, discounted_price: 1
+      product_code: '001', quantity_eligible: 2, amount_discounted: 1
     )
   end
 
@@ -20,7 +20,7 @@ describe 'BulkRule' do
     it 'returns with discount' do
       expect(
         rule.calculate_discount(items).map(&:price).reduce(0, :+)
-      ).to eq(22)
+      ).to eq(38)
     end
   end
 
