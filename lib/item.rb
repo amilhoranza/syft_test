@@ -1,3 +1,4 @@
+# Item class
 class Item
   attr_reader :code, :name
   attr_accessor :price

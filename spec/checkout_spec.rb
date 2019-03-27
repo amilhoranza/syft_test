@@ -4,12 +4,15 @@ require 'item'
 require 'checkout'
 
 describe 'Checkout' do
-
   context 'when using only PercentageRule' do
-    co = Checkout.new([
-      BulkRule.new(product_code: '001', quantity_eligible: 2, amount_discounted: 0.75),
-      PercentageRule.new(percentage_discount: 10, eligible_amount: 60)
-    ])
+    co = Checkout.new(
+      [
+        BulkRule.new(
+          product_code: '001', quantity_eligible: 2, discounted_price: 8.50
+        ),
+        PercentageRule.new(percentage_discount: 10, eligible_amount: 60)
+      ]
+    )
     co.scan(Item.new('001', 'Lavender heart', 9.25))
     co.scan(Item.new('002', 'Personalised cufflinks', 45))
     co.scan(Item.new('003', 'Kids T-shirt', 19.95))
@@ -20,10 +23,14 @@ describe 'Checkout' do
   end
 
   context 'when using all rules' do
-    co = Checkout.new([
-      BulkRule.new(product_code: '001', quantity_eligible: 2, amount_discounted: 0.75),
-      PercentageRule.new(percentage_discount: 10, eligible_amount: 60)
-    ])
+    co = Checkout.new(
+      [
+        BulkRule.new(
+          product_code: '001', quantity_eligible: 2, discounted_price: 8.50
+        ),
+        PercentageRule.new(percentage_discount: 10, eligible_amount: 60)
+      ]
+    )
     co.scan(Item.new('001', 'Lavender heart', 9.25))
     co.scan(Item.new('002', 'Personalised cufflinks', 45))
     co.scan(Item.new('001', 'Lavender heart', 9.25))

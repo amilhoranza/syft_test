@@ -11,15 +11,21 @@ describe 'PercentageRule' do
   end
 
   context 'when eligible calculates discounts' do
-    let(:rule) { PercentageRule.new(percentage_discount: 15, eligible_amount: 50) }
+    let(:rule) do
+      PercentageRule.new(percentage_discount: 15, eligible_amount: 50)
+    end
 
     it 'returns 15%' do
-      expect(rule.calculate_discount(items).map(&:price).reduce(0, :+)).to eq(51)
+      expect(
+        rule.calculate_discount(items).map(&:price).reduce(0, :+)
+      ).to eq(51)
     end
   end
 
   context 'when not eligible does not calculates discounts' do
-    let(:rule) { PercentageRule.new(percentage_discount: 10, eligible_amount: 500) }
+    let(:rule) do
+      PercentageRule.new(percentage_discount: 10, eligible_amount: 500)
+    end
 
     it 'returns 0%' do
       expect(rule.calculate_discount(items)).to eq(60)

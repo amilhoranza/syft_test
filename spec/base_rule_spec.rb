@@ -2,7 +2,6 @@ require 'base_rule'
 require 'item'
 
 describe BaseRule.new do
-
   context 'calculates total items price' do
     let(:items) do
       [

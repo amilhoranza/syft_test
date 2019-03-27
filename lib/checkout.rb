@@ -1,7 +1,7 @@
 require_relative 'percentage_rule'
 require_relative 'bulk_rule'
 require_relative 'item'
-
+# Checkout
 class Checkout
   def initialize(promotional_rules)
     @promotional_rules = promotional_rules
@@ -13,7 +13,6 @@ class Checkout
   end
 
   def total
-    total_discount = 0
     promotional_rules.each do |rule|
       rule.calculate_discount(@items)
     end
