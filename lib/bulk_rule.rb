@@ -15,7 +15,7 @@ class BulkRule < BaseRule
     return total_items(items) if local_items.size < quantity_eligible
 
     items.each do |item|
-      item.price = item.price - amount_discounted if item.code == product_code
+      item.price = (item.price - amount_discounted) if item.code == product_code
     end
   end
 
