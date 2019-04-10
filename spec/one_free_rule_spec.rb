@@ -52,23 +52,6 @@ describe 'OneFreeRule' do
     end
   end
 
-  context 'when is eligible with 5 gives 1 free plus discount coupon value' do
-    let(:items) do
-      [
-        Item.new('003', 'Kids T-shirt', 19.95),
-        Item.new('003', 'Kids T-shirt', 19.95),
-        Item.new('003', 'Kids T-shirt', 19.95),
-        Item.new('003', 'Kids T-shirt', 19.95),
-        Item.new('003', 'Kids T-shirt', 19.95),
-        Item.new('004', 'Discount cupom', -5.00)
-      ]
-    end
-
-    it 'returns 1 free plus discount coupon value' do
-      expect(rule.calculate_discount(items).round(2)).to eq(74.8)
-    end
-  end
-
   context 'when is eligible with 7 gives 2 free plus discount coupon value' do
     let(:items) do
       [
